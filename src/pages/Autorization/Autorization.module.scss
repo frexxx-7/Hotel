@@ -1,0 +1,70 @@
+.mainContent {
+    height: 86vh;
+    display: flex;
+}
+
+.company {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.companyP {
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.autorizationWindow {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.window {
+    box-shadow: 0 0 7px 0 #000;
+    width: 40%;
+    height: 50%;
+    border-radius: 10%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.windowContent {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+}
+
+.inputDiv {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.autorizationButton {
+    padding: 10px 7px;
+    border: none;
+    border-radius: 10%;
+    background-color: #dadada;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.registrationA {
+    font-weight: bold;
+    color:blue;
+}
+.inputAutorization{
+    font-weight: bold;
+    padding: 3px 5px;
+    border-radius: 5px;
+}

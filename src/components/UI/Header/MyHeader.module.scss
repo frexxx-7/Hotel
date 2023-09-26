@@ -1,0 +1,58 @@
+header {
+    height: 7vh;
+    box-shadow: 0 0 10px 0 #000;
+    width: 100vw;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.iconBurger {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.iconBurger>svg {
+    height: 25px;
+}
+
+.nameCompany {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.company {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nameCompanyP {
+    padding: 0 20px;
+    font-weight: bold;
+}
+
+.profileP {
+    padding-right: 10px;
+    font-weight: bold;
+}
+
+.contentHeader {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.profileDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
