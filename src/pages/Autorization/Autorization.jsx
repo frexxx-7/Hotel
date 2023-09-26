@@ -1,5 +1,6 @@
 import React from 'react'
 import classes from './Autorization.module.scss'
+import { Link } from 'react-router-dom'
 
 const Autorization = () => {
     return (
@@ -17,7 +18,12 @@ const Autorization = () => {
                             <input type="text" className={classes.inputAutorization} placeholder='Password' />
                         </div>
                         {/* <div style={{ color: 'red', textAlign: 'center', marginTop: '1rem' }}></div> */}
-                        <a href='' className={classes.registrationA}>Регистрация</a>
+                        <Link
+                            to="/registration"
+                            className={classes.registrationA}
+                        >
+                            Регистрация
+                        </Link>
                         <button className={classes.autorizationButton}>Авторизация</button>
                     </div>
                 </div>

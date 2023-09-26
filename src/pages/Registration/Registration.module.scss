@@ -1,0 +1,55 @@
+.content {
+    width: 100%;
+    height: 86vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.windowRegistration {
+    box-shadow: 0 0 7px 0 #000;
+    width: 40%;
+    height: 50%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputDiv {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.inputRegistration {
+    font-weight: bold;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: 1px solid #dadada;
+}
+
+.windowContent {
+    width: 80%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 80%;
+    align-items: center;
+}
+
+.windowContent>p {
+    font-weight: bold;
+}
+
+.registrationButton {
+    padding: 10px 7px;
+    border: none;
+    border-radius: 10%;
+    background-color: #dadada;
+    font-weight: bold;
+    margin-top: 30px;
+}

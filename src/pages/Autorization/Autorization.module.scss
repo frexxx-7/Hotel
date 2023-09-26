@@ -42,6 +42,10 @@
     align-items: center;
 }
 
+.windowContent>p{
+    font-weight: bold;
+}
+
 .inputDiv {
     display: flex;
     height: 50%;
@@ -67,4 +71,5 @@
     font-weight: bold;
     padding: 3px 5px;
     border-radius: 5px;
+    border: 1px solid #dadada;
 }
