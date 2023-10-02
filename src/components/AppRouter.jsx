@@ -7,11 +7,11 @@ import Main from '../pages/Main/Main'
 const AppRouter = () => {
   return (
     <Routes>
-        <Route path='/autorization' element={<Autorization  />} />
-        <Route path='/registration' element={<Registration />} />
+        <Route path='/signin' element={<Autorization  />} />
+        <Route path='/signup' element={<Registration />} />
         <Route path='/main' element={<Main />} />
 
-        <Route path="*" element={<Navigate to={`/autorization`} />}/>
+        <Route path="*" element={<Navigate to={`/signin`} />}/>
       </Routes>
   )
 }

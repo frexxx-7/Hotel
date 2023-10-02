@@ -19,7 +19,7 @@ const Autorization = () => {
                         </div>
                         {/* <div style={{ color: 'red', textAlign: 'center', marginTop: '1rem' }}></div> */}
                         <Link
-                            to="/registration"
+                            to="/signup"
                             className={classes.registrationA}
                         >
                             Регистрация
