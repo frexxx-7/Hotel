@@ -10,6 +10,7 @@ const Registration = () => {
     const loginRef = useRef();
     const passwordRef = useRef();
     const repeatPasswordRef = useRef();
+    const [errors, setErrors] = useState();
 
     const { setUser, setToken } = useStateContext()
 
@@ -27,7 +28,7 @@ const Registration = () => {
             .catch(err => {
                 const response = err.response
                 if (response && response.status == 422) {
-                    console.log(response.data.errors);
+                    setErrors(response.data.errors)
                 }
             })
     }
@@ -42,7 +43,7 @@ const Registration = () => {
                         <input ref={passwordRef} type="text" className={classes.inputRegistration} name="password" placeholder='Пароль' />
                         <input ref={repeatPasswordRef} type="text" className={classes.inputRegistration} placeholder='Повторите пароль' />
                     </div>
-                    <p className={classes.error}>{ }</p>
+                    <p className={classes.error}>{errors}</p>
                     <button className={classes.registrationButton} onClick={registrationClick}>Зарегистрироваться</button>
                 </div>
             </div>
