@@ -8,6 +8,7 @@ const Registration = () => {
     const navigate = useNavigate();
 
     const loginRef = useRef();
+    const emailRef = useRef();
     const passwordRef = useRef();
     const repeatPasswordRef = useRef();
     const [errors, setErrors] = useState();
@@ -17,8 +18,9 @@ const Registration = () => {
     const registrationClick = (e) => {
         const payload = {
             login: loginRef.current.value,
+            email: emailRef.current.value,
             password: passwordRef.current.value,
-            repeat_password: repeatPasswordRef.current.value
+            password_confirmation: repeatPasswordRef.current.value
         }
         axiosCLient.post('/signup', payload)
             .then(({ data }) => {
@@ -40,6 +42,7 @@ const Registration = () => {
                     <p>Регистрация</p>
                     <div className={classes.inputDiv}>
                         <input ref={loginRef} type="text" className={classes.inputRegistration} name="login" placeholder='Логин' />
+                        <input ref={emailRef} type="email" className={classes.inputRegistration} name="email" placeholder='Почта' />
                         <input ref={passwordRef} type="text" className={classes.inputRegistration} name="password" placeholder='Пароль' />
                         <input ref={repeatPasswordRef} type="text" className={classes.inputRegistration} placeholder='Повторите пароль' />
                     </div>
