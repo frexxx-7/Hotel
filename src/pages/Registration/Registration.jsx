@@ -44,8 +44,8 @@ const Registration = () => {
                     <div className={classes.inputDiv}>
                         <input ref={nameRef} type="text" className={classes.inputRegistration} name="name" placeholder='Имя' />
                         <input ref={emailRef} type="email" className={classes.inputRegistration} name="email" placeholder='Почта' />
-                        <input ref={passwordRef} type="text" className={classes.inputRegistration} name="password" placeholder='Пароль' />
-                        <input ref={repeatPasswordRef} type="text" className={classes.inputRegistration} placeholder='Повторите пароль' />
+                        <input ref={passwordRef} type="password" className={classes.inputRegistration} name="password" placeholder='Пароль' />
+                        <input ref={repeatPasswordRef} type="password" className={classes.inputRegistration} placeholder='Повторите пароль' />
                     </div>
                     {errors &&
                         <div>

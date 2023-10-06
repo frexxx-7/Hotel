@@ -42,7 +42,7 @@
     align-items: center;
 }
 
-.windowContent>p {
+.windowContent>p{
     font-weight: bold;
 }
 
@@ -65,16 +65,14 @@
 
 .registrationA {
     font-weight: bold;
-    color: blue;
+    color:blue;
 }
-
-.inputAutorization {
+.inputAutorization{
     font-weight: bold;
     padding: 3px 5px;
     border-radius: 5px;
     border: 1px solid #dadada;
 }
-
 .error {
     color: red;
     text-align: center;

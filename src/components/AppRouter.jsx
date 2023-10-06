@@ -3,7 +3,7 @@ import Autorization from '../pages/Autorization/Autorization'
 import { Navigate, Route, Routes } from 'react-router-dom'
 import Registration from '../pages/Registration/Registration'
 import Main from '../pages/Main/Main'
-import { publicRoutes } from '../router/routes'
+import { privateRoutes, publicRoutes } from '../router/routes'
 import { useStateContext } from '../context/ContextProvider'
 
 const AppRouter = () => {
@@ -12,7 +12,7 @@ const AppRouter = () => {
   return (
     token ?
       <Routes>
-        {publicRoutes.map((route, index) =>
+        {privateRoutes.map((route, index) =>
           <Route
             path={route.path}
             element={<route.component />}
@@ -23,8 +23,6 @@ const AppRouter = () => {
       </Routes>
       :
       <Routes>
-        <Route path='/signin' element={<Autorization />} />
-        <Route path='/signup' element={<Registration />} />
         {publicRoutes.map((route, index) =>
           <Route
             path={route.path}

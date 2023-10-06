@@ -44,8 +44,8 @@ const Autorization = () => {
                     <div className={classes.windowContent}>
                         <p>Авторизация</p>
                         <div className={classes.inputDiv}>
-                            <input ref={emailRef} type="text" className={classes.inputAutorization} placeholder='Почта' />
-                            <input ref={passwordRef} type="text" className={classes.inputAutorization} placeholder='Пароль' />
+                            <input ref={emailRef} type="email" className={classes.inputAutorization} placeholder='Почта' />
+                            <input ref={passwordRef} type="password" className={classes.inputAutorization} placeholder='Пароль' />
                         </div>
                         {errors &&
                             <div>
