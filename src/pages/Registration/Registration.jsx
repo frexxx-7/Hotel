@@ -7,17 +7,17 @@ import { useStateContext } from '../../context/ContextProvider';
 const Registration = () => {
     const navigate = useNavigate();
 
-    const loginRef = useRef();
+    const nameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const repeatPasswordRef = useRef();
-    const [errors, setErrors] = useState();
+    const [errors, setErrors] = useState(null);
 
     const { setUser, setToken } = useStateContext()
 
     const registrationClick = (e) => {
         const payload = {
-            login: loginRef.current.value,
+            name: nameRef.current.value,
             email: emailRef.current.value,
             password: passwordRef.current.value,
             password_confirmation: repeatPasswordRef.current.value
@@ -26,14 +26,15 @@ const Registration = () => {
             .then(({ data }) => {
                 setUser(data.user)
                 setToken(data.token)
+                navigate('/main')
             })
             .catch(err => {
                 const response = err.response
-                if (response && response.status == 422) {
+                if (response && response.status === 422) {
                     setErrors(response.data.errors)
                 }
             })
-    }
+    } 
 
     return (
         <div className={classes.content}>
@@ -41,12 +42,17 @@ const Registration = () => {
                 <div className={classes.windowContent}>
                     <p>Регистрация</p>
                     <div className={classes.inputDiv}>
-                        <input ref={loginRef} type="text" className={classes.inputRegistration} name="login" placeholder='Логин' />
+                        <input ref={nameRef} type="text" className={classes.inputRegistration} name="name" placeholder='Имя' />
                         <input ref={emailRef} type="email" className={classes.inputRegistration} name="email" placeholder='Почта' />
                         <input ref={passwordRef} type="text" className={classes.inputRegistration} name="password" placeholder='Пароль' />
                         <input ref={repeatPasswordRef} type="text" className={classes.inputRegistration} placeholder='Повторите пароль' />
                     </div>
-                    <p className={classes.error}>{errors}</p>
+                    {errors &&
+                        <div>
+                            {Object.keys(errors).map(key => (
+                                <p className={classes.error} key={key}>{errors[key][0]}</p>
+                            ))}</div>
+                    }
                     <button className={classes.registrationButton} onClick={registrationClick}>Зарегистрироваться</button>
                 </div>
             </div>
