@@ -1,0 +1,43 @@
+.content {
+    height: var(--height-content);
+}
+
+.profileInfoContent {
+    height: 30%;
+    box-shadow: 0 4px 2px -2px #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profileInfo {
+    width: 85%;
+    height: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.info {
+    width: 40%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.name,
+.email {
+    font-size: 20px;
+}
+
+.name:last-child,
+.email:last-child {
+    margin-left: 10px;
+}
+
+.nameDiv,
+.emailDiv {
+    width: 100%;
+    display: flex;
+}

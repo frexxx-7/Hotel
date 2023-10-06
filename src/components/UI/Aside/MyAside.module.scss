@@ -1,9 +1,62 @@
 .MyAside {
     position: fixed;
     height: 100vh;
-    background-color: #d3d3d3;
+    background-color: #fff;
     width: 250px;
+    box-shadow: 0 0 10px 0 #000;
 }
-.cancel:hover{
+
+.cancelDiv {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 5px 10px 0 0;
+    width: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+}
+
+.cancelDiv:hover {
     cursor: pointer;
+    background-color: rgba($color: #d3d3d3, $alpha: .5);
+}
+
+.cancel {
+    height: 20px;
+}
+
+.headerAside {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px 0 #000;
+    border-radius: 0 0 10px 10px;
+}
+
+.goToMainDiv {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.goToMain {
+    display: flex;
+    height: 30px;
+    width: 130px;
+    align-items: center;
+    justify-content: center;
+}
+
+.goToMain:hover {
+    cursor: pointer;
+    background-color: rgba($color: #d3d3d3, $alpha: .5);
+    border-radius: 10px;
+}
+
+.goToMain>p {
+    margin-left: 10px;
 }

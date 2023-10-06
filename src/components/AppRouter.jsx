@@ -1,13 +1,18 @@
-import React from 'react'
-import Autorization from '../pages/Autorization/Autorization'
+import React, { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import Registration from '../pages/Registration/Registration'
-import Main from '../pages/Main/Main'
 import { privateRoutes, publicRoutes } from '../router/routes'
 import { useStateContext } from '../context/ContextProvider'
+import axiosCLient from '../axios.client'
 
 const AppRouter = () => {
-  const { token } = useStateContext();
+  const { token,setUser } = useStateContext();
+
+  useEffect(()=>{
+    axiosCLient.get('/user')
+    .then(({data})=>{
+      setUser(data)
+    })
+  }, [])
 
   return (
     token ?

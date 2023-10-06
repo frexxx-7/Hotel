@@ -37,7 +37,7 @@ const MyHeader = () => {
           <div className={classes.profile}>
             <p className={classes.profileP}>Профиль</p>
           </div>
-          <div className={classes.iconBurger}>
+          <div className={classes.iconProfile}>
             <FontAwesomeIcon icon={faUser} />
           </div>
         </div>
