@@ -15,7 +15,7 @@
 
 .mainBgImage {
     width: 85%;
-    height: 40vh;
+    height: 50vh;
 }
 
 .mainInfo {
@@ -62,13 +62,14 @@
     cursor: pointer;
 }
 
-.blockNews {
+.blockNews, .blockRooms {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 75vh;
 }
 
-.blockNewsContent {
+.blockNewsContent, .blockRoomsContent {
     width: 85%;
     display: flex;
     justify-content: center;
@@ -77,12 +78,14 @@
     flex-direction: column;
 }
 
-.newsH3 {
+.newsH3, .roomsH3 {
     font-size: 30px;
     font-weight: bold;
     margin: 20px 0;
 }
 
-.newsPosts {
+.newsPosts, .roomsPosts {
     width: 90%;
+    display: flex;
+    flex-wrap: wrap;
 }

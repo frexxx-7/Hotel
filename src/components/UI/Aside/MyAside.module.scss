@@ -36,14 +36,14 @@
     border-radius: 0 0 10px 10px;
 }
 
-.goToMainDiv {
+.goToDiv {
     height: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.goToMain {
+.goTo {
     display: flex;
     height: 30px;
     width: 130px;
@@ -51,12 +51,12 @@
     justify-content: center;
 }
 
-.goToMain:hover {
+.goTo:hover {
     cursor: pointer;
     background-color: rgba($color: #d3d3d3, $alpha: .5);
     border-radius: 10px;
 }
 
-.goToMain>p {
+.goTo>p {
     margin-left: 10px;
 }

@@ -25,7 +25,7 @@ const Profile = () => {
       </div>
       <div className={classes.roomsContent}>
         <div className={classes.rooms}>
-          <h3 className={classes.roomsH3}>Rooms:</h3>
+          <h3 className={classes.roomsH3}>Команты:</h3>
         </div>
       </div>
     </div>

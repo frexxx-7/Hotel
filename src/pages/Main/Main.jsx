@@ -4,6 +4,7 @@ import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 import New from '../../components/New/New'
+import Room from '../../components/Room/Room'
 
 const Main = () => {
 
@@ -28,13 +29,18 @@ const Main = () => {
         <div className={classes.blockNewsContent}>
           <h3 className={classes.newsH3}>Новости</h3>
           <div className={classes.newsPosts}>
-            <New/>
-            <New/>
-            <New/>
-            <New/>
           </div>
         </div>
       </div>
+
+    <div className={classes.blockRooms}>
+      <div className={classes.blockRoomsContent}>
+        <h3 className={classes.roomsH3}>Комнаты</h3>
+        <div className={classes.roomsPosts}>
+        </div>
+      </div>
+    </div>
+
     </div>
   )
 }

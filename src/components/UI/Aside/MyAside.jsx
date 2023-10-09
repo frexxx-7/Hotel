@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import classes from './MyAside.module.scss'
 import { useStateContext } from '../../../context/ContextProvider'
-import { faHouse, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faList, faNewspaper, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from 'react-router-dom'
 
@@ -17,10 +17,24 @@ const MyAside = () => {
                     <FontAwesomeIcon icon={faXmark} className={classes.cancel}/>
                 </div>
             </div>
-            <div className={classes.goToMainDiv}>
-                <div className={classes.goToMain} onClick={() => navigate('/main')}>
+            <div className={classes.goToDiv}>
+                <div className={classes.goTo} onClick={() => navigate('/main')}>
                     <FontAwesomeIcon icon={faHouse} />
                     <p>На главную</p>
+                </div>
+            </div>
+
+            <div className={classes.goToDiv}>
+                <div className={classes.goTo} onClick={() => navigate('/rooms')}>
+                    <FontAwesomeIcon icon={faList} />
+                    <p>Комнаты</p>
+                </div>
+            </div>
+
+            <div className={classes.goToDiv}>
+                <div className={classes.goTo} onClick={() => navigate('/news')}>
+                    <FontAwesomeIcon icon={faNewspaper} />
+                    <p>Новости</p>
                 </div>
             </div>
         </aside>

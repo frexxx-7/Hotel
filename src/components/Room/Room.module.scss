@@ -1,4 +1,4 @@
-.newsContent {
+.roomContent {
     width: 50%;
     display: flex;
     justify-content: center;
@@ -6,7 +6,7 @@
     height: 30vh;
 }
 
-.newsBlock {
+.roomBlock {
     width: 90%;
     box-shadow: 0 0 10px 0 #000;
     border-radius: 20px;
@@ -16,7 +16,7 @@
     align-items: center;
 }
 
-.newBlockContent {
+.roomBlockContent {
     width: 90%;
     height: 70%;
 }
