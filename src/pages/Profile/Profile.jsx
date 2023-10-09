@@ -21,6 +21,12 @@ const Profile = () => {
             </div>
           </div>
         </div>
+
+      </div>
+      <div className={classes.roomsContent}>
+        <div className={classes.rooms}>
+          <h3 className={classes.roomsH3}>Rooms:</h3>
+        </div>
       </div>
     </div>
   )

@@ -1,0 +1,88 @@
+.main {
+    width: 85%;
+}
+
+.bgImage {
+    width: 100%;
+    background-image: url("./background-image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.mainBgImage {
+    width: 85%;
+    height: 40vh;
+}
+
+.mainInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.mainInfoH2 {
+    font-size: 50px;
+    color: #fff;
+    text-shadow: 1px 2px 2px #000, 0 0 1em;
+    margin-bottom: 40px;
+}
+
+.mainSearch {
+    display: flex;
+}
+
+.searchInput {
+    border: 1px solid #000;
+    border-radius: 10px 0 0 10px;
+    height: 30px;
+    width: 600px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.searchButton {
+    border: 1px solid #000;
+    border-radius: 0 10px 10px 0;
+    height: 28.2px;
+    background-color: #ff6161;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    color: #fff;
+}
+
+.searchButton:hover {
+    cursor: pointer;
+}
+
+.blockNews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.blockNewsContent {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.newsH3 {
+    font-size: 30px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+.newsPosts {
+    width: 90%;
+}

@@ -4,7 +4,6 @@
 
 .profileInfoContent {
     height: 30%;
-    box-shadow: 0 4px 2px -2px #000;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -29,6 +28,7 @@
 .name,
 .email {
     font-size: 20px;
+    font-weight: bold;
 }
 
 .name:last-child,
@@ -40,4 +40,18 @@
 .emailDiv {
     width: 100%;
     display: flex;
+}
+
+.roomsContent {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rooms {
+    width: 85%;
+}
+
+.roomsH3 {
+    font-weight: bold;
 }
