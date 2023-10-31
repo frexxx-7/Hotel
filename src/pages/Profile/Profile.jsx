@@ -28,6 +28,8 @@ const Profile = () => {
           <h3 className={classes.roomsH3}>Команты:</h3>
         </div>
       </div>
+
+      <button className={classes.exitButton}>Выход</button>
     </div>
   )
 }
