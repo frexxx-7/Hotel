@@ -17,7 +17,6 @@ const Main = () => {
         setMainInfo(data);
       })
   }, [])
-  console.log(mainInfo.news);
 
   return (
     <div className={classes.mainContent}>

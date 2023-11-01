@@ -18,3 +18,11 @@ export const privateRoutes = [
   { path: '/rooms', component: Rooms },
   { path: '/news', component: News },
 ]
+export const adminRoutes = [
+  { path: 'admin/main', component: Main },
+  { path: 'admin/profile', component: Profile },
+  { path: 'admin/rooms', component: Rooms },
+  { path: 'admin/news', component: News },
+  { path: 'admin/signin', component: Autorization },
+  { path: 'admin/signup', component: Registration },
+]

@@ -5,15 +5,19 @@ import { useStateContext } from '../context/ContextProvider'
 import axiosCLient from '../axios.client'
 
 const AppRouter = () => {
-  const { token,setUser } = useStateContext();
+  const { token, setUser, adminInfo, setAdminInfo } = useStateContext();
 
-  useEffect(()=>{
+  useEffect(() => {
     axiosCLient.get('/user')
-    .then(({data})=>{
-      setUser(data)
-    })
+      .then(({ data }) => {
+        setUser(data)
+      })
+    axiosCLient.get('/adminInfo')
+      .then(({ data }) => {
+        setAdminInfo(data)
+      })
   }, [])
-
+  
   return (
     token ?
       <Routes>

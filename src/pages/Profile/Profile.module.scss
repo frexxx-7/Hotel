@@ -14,6 +14,7 @@
     height: 70%;
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .info {
@@ -55,18 +56,22 @@
 .roomsH3 {
     font-weight: bold;
 }
-.exitButton{
-    position: absolute;
-    right: 10vh;
-    top: 10vh;
-    padding: 10px 15px;  
+
+.exitButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exitButton {
+    padding: 10px 15px;
     border: none;
     border-radius: 10%;
     background-color: #dadada;
     font-weight: bold;
-    margin-top: 30px;
 }
-.exitButton:hover{
+
+.exitButton:hover {
     color: #fff;
     cursor: pointer;
 }

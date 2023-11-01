@@ -2,9 +2,25 @@ import React, { useEffect } from 'react'
 import classes from './Profile.module.scss'
 import { useStateContext } from '../../context/ContextProvider'
 import axiosCLient from '../../axios.client'
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-  const { user } = useStateContext()
+  const { user, token, setUser, setToken } = useStateContext()
+
+  const navigate = useNavigate()
+  if (!token) {
+    navigate('/main')
+  }
+
+  const onLogout = (ev) => {
+    ev.preventDefault()
+
+    axiosCLient.post('/logout')
+      .then(() => {
+        setUser({})
+        setToken(null)
+      })
+  }
 
   return (
     <div className={classes.content}>
@@ -20,6 +36,9 @@ const Profile = () => {
               <p className={classes.email}>{user.email}</p>
             </div>
           </div>
+          <div className={classes.exitButtonDiv}>
+            <button className={classes.exitButton} onClick={onLogout}>Выход</button>
+          </div>
         </div>
 
       </div>
@@ -29,7 +48,6 @@ const Profile = () => {
         </div>
       </div>
 
-      <button className={classes.exitButton}>Выход</button>
     </div>
   )
 }

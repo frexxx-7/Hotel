@@ -3,7 +3,6 @@ import classes from './Room.module.scss'
 
 const Room = (props) => {
 
-  console.log(props);
   const roomInfo = props.room
 
   return (

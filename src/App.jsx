@@ -1,16 +1,15 @@
 import MyHeader from './components/UI/Header/MyHeader'
-import AppRouter from './Components/AppRouter'
 import { BrowserRouter } from 'react-router-dom'
-import AdminPanel from './components/UI/AdminPanel/AdminPAnel'
 import { useStateContext } from './context/ContextProvider'
 import MyAside from './components/UI/Aside/MyAside'
 import { Transition } from 'react-transition-group'
+import AppRouter from './components/AppRouter'
+import AdminPanel from './components/UI/AdminPanel/AdminPanel'
 
 
 function App() {
-  const { showAside } = useStateContext()
+  const { showAside, adminInfo, user } = useStateContext()
   const duration = 200;
-
   const defaultStyle = {
     transition: `transform ${duration}ms ease-in-out`,
   }
@@ -28,6 +27,20 @@ function App() {
 
   return (
     <BrowserRouter>
+      {
+      adminInfo && user &&
+        adminInfo.username == user.name
+          ?
+          adminInfo.email == user.email
+            ?
+            <AdminPanel />
+            :
+            ""
+          :
+          ""
+
+      }
+
       {<Transition in={showAside} timeout={duration} unmountOnExit>
         {state => (
           <div className='asideDiv' style={{
