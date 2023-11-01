@@ -9,7 +9,7 @@ const AdminPanel = () => {
   const switchPath = (pathname) => {
     switch (pathname) {
       case "/main":
-        return MainAdminPanel
+        return <MainAdminPanel />
       case "/profile":
         return "profile"
       case "/news":
