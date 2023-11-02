@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import { privateRoutes, publicRoutes } from '../router/routes'
+import { adminRoutes, privateRoutes, publicRoutes } from '../router/routes'
 import { useStateContext } from '../context/ContextProvider'
 import axiosCLient from '../axios.client'
 
 const AppRouter = () => {
-  const { token, setUser, adminInfo, setAdminInfo } = useStateContext();
+  const { token, setUser, adminInfo, setAdminInfo, user } = useStateContext();
 
   useEffect(() => {
     axiosCLient.get('/user')
@@ -17,19 +17,53 @@ const AppRouter = () => {
         setAdminInfo(data)
       })
   }, [])
-  
+
   return (
     token ?
-      <Routes>
-        {privateRoutes.map((route, index) =>
-          <Route
-            path={route.path}
-            element={<route.component />}
-            key={index}
-          />
-        )}
-        <Route path="*" element={<Navigate to={`/main`} />} />
-      </Routes>
+      adminInfo && user &&
+        adminInfo.username == user.name
+        ?
+        adminInfo.email == user.email
+          ?
+          <Routes>
+            {privateRoutes.map((route, index) =>
+              <Route
+                path={route.path}
+                element={<route.component />}
+                key={index}
+              />
+            )}
+            {adminRoutes.map((route, index) =>
+              <Route
+                path={route.path}
+                element={<route.component />}
+                key={index}
+              />
+            )}
+            <Route path="*" element={<Navigate to={`/main`} />} />
+          </Routes>
+          :
+          <Routes>
+            {privateRoutes.map((route, index) =>
+              <Route
+                path={route.path}
+                element={<route.component />}
+                key={index}
+              />
+            )}
+            <Route path="*" element={<Navigate to={`/main`} />} />
+          </Routes>
+        :
+        <Routes>
+          {privateRoutes.map((route, index) =>
+            <Route
+              path={route.path}
+              element={<route.component />}
+              key={index}
+            />
+          )}
+          <Route path="*" element={<Navigate to={`/main`} />} />
+        </Routes>
       :
       <Routes>
         {publicRoutes.map((route, index) =>

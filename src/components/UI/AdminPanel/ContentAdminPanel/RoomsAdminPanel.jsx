@@ -1,10 +1,10 @@
-import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 import classes from './ContentAdminPanel.module.scss'
-import { faPen, faList, faNewspaper } from '@fortawesome/free-solid-svg-icons'
 import { useNavigate } from 'react-router-dom'
+import { faHouse, faNewspaper, faPen, faPlus } from '@fortawesome/free-solid-svg-icons'
 
-const MainAdminPanel = () => {
+const RoomsAdminPanel = () => {
     const navigate = useNavigate()
     return (
         <div className={classes.AdminPanel}>
@@ -15,11 +15,12 @@ const MainAdminPanel = () => {
                 <p className={classes.buttonP}>Изменить шрифт</p>
             </div>
 
-            <div className={classes.buttonDiv}  onClick={() => navigate('/rooms')}>
+
+            <div className={classes.buttonDiv} onClick={() => navigate('/main')}>
                 <div className={classes.iconDiv}>
-                    <FontAwesomeIcon icon={faList} />
+                    <FontAwesomeIcon icon={faHouse} />
                 </div>
-                <p className={classes.buttonP}>Комнаты</p>
+                <p className={classes.buttonP}>Главная</p>
             </div>
 
             <div className={classes.buttonDiv}  onClick={() => navigate('/news')}>
@@ -28,8 +29,16 @@ const MainAdminPanel = () => {
                 </div>
                 <p className={classes.buttonP}>Новости</p>
             </div>
+
+            <div className={classes.buttonDiv} onClick={() => navigate('/main')}>
+                <div className={classes.iconDiv}>
+                    <FontAwesomeIcon icon={faPlus} />
+                </div>
+                <p className={classes.buttonP}>Добавить</p>
+            </div>
+
         </div>
     )
 }
 
-export default MainAdminPanel
+export default RoomsAdminPanel

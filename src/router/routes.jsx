@@ -1,3 +1,4 @@
+import AddNews from "../pages/AddNews/AddNews";
 import Autorization from "../pages/Autorization/Autorization";
 import Main from "../pages/Main/Main";
 import News from "../pages/News/News";
@@ -19,10 +20,5 @@ export const privateRoutes = [
   { path: '/news', component: News },
 ]
 export const adminRoutes = [
-  { path: 'admin/main', component: Main },
-  { path: 'admin/profile', component: Profile },
-  { path: 'admin/rooms', component: Rooms },
-  { path: 'admin/news', component: News },
-  { path: 'admin/signin', component: Autorization },
-  { path: 'admin/signup', component: Registration },
+  { path: '/addNews', component: AddNews },
 ]

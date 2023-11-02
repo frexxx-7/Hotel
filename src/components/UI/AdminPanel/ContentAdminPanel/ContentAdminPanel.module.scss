@@ -1,4 +1,4 @@
-.editFontDiv {
+.buttonDiv {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,16 +7,17 @@
     width: 10%;
 }
 
-.mainAdminPanel {
+.AdminPanel {
     width: 90%;
     display: flex;
+    justify-content: center;
 }
 
-.editFontP {
+.buttonP {
     font-size: 13px;
     text-align: center;
 }
-.editFontDiv:hover{
+.buttonDiv:hover{
     cursor:pointer;
     background-color: rgba($color: #d3d3d3, $alpha: .5);
     border-radius: 20px;
