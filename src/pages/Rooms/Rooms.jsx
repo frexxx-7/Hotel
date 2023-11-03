@@ -6,17 +6,24 @@ import axiosCLient from '../../axios.client'
 const Rooms = () => {
   const [arrayRooms, setArrayRooms] = useState([])
 
-  useEffect(()=>{
+  useEffect(() => {
     axiosCLient.get('/rooms')
-    .then(({data})=>{
-      setArrayRooms(data.rooms);
-    })
+      .then(({ data }) => {
+        setArrayRooms(data.rooms);
+      })
   }, [])
   return (
     <div className={classes.rooms}>
+      {arrayRooms.length == 0 ?
+        <div className={classes.loader}>
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+        :
+        ""
+      }
       {
-        arrayRooms.map((elem, key)=>{
-          return <Room room = {elem} key={key}/>
+        arrayRooms.map((elem, key) => {
+          return <Room room={elem} key={key} />
         })
       }
     </div>

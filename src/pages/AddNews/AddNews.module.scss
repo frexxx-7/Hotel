@@ -1,0 +1,126 @@
+.addNews {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.addNewsWindow {
+    min-width: 50%;
+    background-color: rgba($color: #d3d3d3, $alpha: .5);
+    border-radius: 20px;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    flex-direction: column;
+}
+
+.addNewsContent {
+    width: 90%;
+    min-height: 90%;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+
+.header>h1 {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.inputs {
+    display: flex;
+    height: 50%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.dataInput {
+    font-weight: bold;
+    padding: 3px 5px;
+    border-radius: 5px;
+    border: 1px solid #dadada;
+    margin: 15px 0;
+    width: 100%;
+}
+
+.addPhoto {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.addPhoto>p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.icon>svg {
+    height: 25px;
+}
+
+.icon {
+    margin-left: 15px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon:hover {
+    background-color: #dadada;
+    cursor: pointer;
+    border-radius: 10px;
+}
+
+.isPublishedCheckBox {
+    width: 80%;
+    display: flex;
+    align-items: center;
+}
+
+.isPublishedCheckBox>p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.isPublishedCheckBox>input {
+    margin-left: 15px;
+}
+
+.addButtonDIv {
+    height: 50px;
+    display: flex;
+    justify-content: end;
+    width: 90%;
+}
+
+.addButtonDIv>button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10%;
+    background-color: #dadada;
+    font-weight: bold;
+    height: 35px;
+}
+
+.addButtonDIv>button:hover {
+    color: #fff;
+    cursor: pointer;
+}
+
+.selectImg {
+    width: 50px;
+    height: 50px;
+}
+
+.selectImg:hover {
+    cursor: pointer;
+}

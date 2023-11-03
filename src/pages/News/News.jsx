@@ -16,6 +16,13 @@ const News = () => {
 
   return (
     <div className={classes.news}>
+      {arrayNews.length == 0 ?
+        <div className={classes.loader}>
+          <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+        </div>
+        :
+        ""
+      }
       {
         arrayNews.map((elem, key)=>{
           return <New new = {elem} key={key}/>

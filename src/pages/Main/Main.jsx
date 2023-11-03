@@ -39,9 +39,16 @@ const Main = () => {
         <div className={classes.blockNewsContent}>
           <h3 className={classes.newsH3}>Новости</h3>
           <div className={classes.newsPosts}>
+            {mainInfo.length == 0 ?
+              <div className={classes.loader}>
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              </div>
+              :
+              ""
+            }
             {mainInfo && mainInfo.news && mainInfo.news.length > 0 &&
               mainInfo.news.map((elem, key) => {
-                return <New new={elem} key= {key} />
+                return <New new={elem} key={key} />
               })
             }
           </div>
@@ -52,9 +59,16 @@ const Main = () => {
         <div className={classes.blockRoomsContent}>
           <h3 className={classes.roomsH3}>Комнаты</h3>
           <div className={classes.roomsPosts}>
-          {mainInfo && mainInfo.rooms && mainInfo.rooms.length > 0 &&
+            {mainInfo.length == 0 ?
+              <div className={classes.loader}>
+                <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              </div>
+              :
+              ""
+            }
+            {mainInfo && mainInfo.rooms && mainInfo.rooms.length > 0 &&
               mainInfo.rooms.map((elem, key) => {
-                return <Room room={elem} key= {key} />
+                return <Room room={elem} key={key} />
               })
             }
           </div>
