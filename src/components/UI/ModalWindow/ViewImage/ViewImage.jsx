@@ -3,7 +3,7 @@ import React from 'react'
 const ViewImage = ({image}) => {
   return (
     <div>
-        <img src="image" alt="" />
+        <img src={image} alt="" />
     </div>
   )
 }

@@ -30,7 +30,7 @@ const RoomsAdminPanel = () => {
                 <p className={classes.buttonP}>Новости</p>
             </div>
 
-            <div className={classes.buttonDiv} onClick={() => navigate('/main')}>
+            <div className={classes.buttonDiv} onClick={() => navigate('/addRooms')}>
                 <div className={classes.iconDiv}>
                     <FontAwesomeIcon icon={faPlus} />
                 </div>
