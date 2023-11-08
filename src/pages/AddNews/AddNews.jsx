@@ -5,6 +5,7 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import ModalWindow from '../../components/UI/ModalWindow/ModalWindow'
 import ViewImage from '../../components/UI/ModalWindow/ViewImage/ViewImage'
 import axiosCLient from '../../axios.client'
+import { useNavigate } from 'react-router-dom'
 
 const AddNews = () => {
 
@@ -15,6 +16,8 @@ const AddNews = () => {
   const titleRef = useRef()
   const contentRef = useRef()
   const isPublishedRef = useRef()
+
+  const navigate = useNavigate()
 
   const chooseImage = async (files) => {
     const selectImg = document.getElementById("selectImg");
@@ -48,7 +51,10 @@ const AddNews = () => {
     }
     axiosCLient.post('/addNews', payload)
       .then(({ data }) => {
-        navigate('/news/:id')
+        if (data) {
+          console.log(data);
+          navigate(`/news/:${data.news.id}`)
+        }
       })
       .catch(err => {
         const response = err.response
@@ -57,7 +63,7 @@ const AddNews = () => {
         }
       })
   }
-  
+
   return (
     <div className={classes.addNews}>
       <div className={classes.addNewsWindow}>

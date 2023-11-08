@@ -6,6 +6,7 @@ import LoadNews from "../pages/News/LoadNews";
 import News from "../pages/News/News";
 import Profile from "../pages/Profile/Profile";
 import Registration from "../pages/Registration/Registration";
+import LoadRoom from "../pages/Rooms/LoadRoom";
 import Rooms from "../pages/Rooms/Rooms";
 
 export const publicRoutes = [
@@ -13,15 +14,17 @@ export const publicRoutes = [
   { path: '/signup', component: Registration },
   { path: '/main', component: Main },
   { path: '/rooms', component: Rooms },
+  { path: '/rooms/:id', component: LoadRoom },
   { path: '/news', component: News },
-  { path: '/news:id', component: LoadNews },
+  { path: '/news/:id', component: LoadNews },
 ]
 export const privateRoutes = [
   { path: '/main', component: Main },
   { path: '/profile', component: Profile },
   { path: '/rooms', component: Rooms },
+  { path: '/rooms/:id', component: LoadRoom },
   { path: '/news', component: News },
-  { path: '/news:id', component: LoadNews },
+  { path: '/news/:id', component: LoadNews },
 ]
 export const adminRoutes = [
   { path: '/addNews', component: AddNews },

@@ -6,6 +6,19 @@
     height: 30vh;
 }
 
+.image {
+    width: 30%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.image>img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
 .newsBlock {
     width: 90%;
     box-shadow: 0 0 10px 0 #000;
@@ -39,4 +52,12 @@
 
 .newsBlock:hover .header {
     color: #ff6161;
+}
+
+.newsContentBlock {
+    width: 90%;
+    display: flex;
+    height: 90%;
+    justify-content: center;
+    align-items: center;
 }

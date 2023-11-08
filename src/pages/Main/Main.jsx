@@ -14,7 +14,6 @@ const Main = () => {
   useEffect(() => {
     axiosCLient.get('/main')
       .then(({ data }) => {
-        console.log(data);
         setMainInfo(data);
       })
   }, [])
@@ -47,8 +46,8 @@ const Main = () => {
               :
               ""
             }
-            {mainInfo && mainInfo.news && mainInfo.news.length > 0 &&
-              mainInfo.news.map((elem, key) => {
+            {mainInfo && mainInfo.news &&
+              Object.values(mainInfo.news).reverse().map((elem, key) => {
                 return <New new={elem} key={key} />
               })
             }
@@ -67,8 +66,8 @@ const Main = () => {
               :
               ""
             }
-            {mainInfo && mainInfo.rooms && mainInfo.rooms.length > 0 &&
-              mainInfo.rooms.map((elem, key) => {
+            {mainInfo && mainInfo.rooms &&
+              Object.values(mainInfo.rooms).map((elem, key) => {
                 return <Room room={elem} key={key} />
               })
             }

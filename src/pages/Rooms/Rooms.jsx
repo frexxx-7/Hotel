@@ -22,7 +22,7 @@ const Rooms = () => {
         ""
       }
       {
-        arrayRooms.map((elem, key) => {
+        arrayRooms.reverse().map((elem, key) => {
           return <Room room={elem} key={key} />
         })
       }

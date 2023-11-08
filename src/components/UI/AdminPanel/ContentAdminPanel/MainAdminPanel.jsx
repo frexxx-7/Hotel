@@ -8,13 +8,6 @@ const MainAdminPanel = () => {
     const navigate = useNavigate()
     return (
         <div className={classes.AdminPanel}>
-            <div className={classes.buttonDiv}>
-                <div className={classes.iconDiv}>
-                    <FontAwesomeIcon icon={faPen} />
-                </div>
-                <p className={classes.buttonP}>Изменить шрифт</p>
-            </div>
-
             <div className={classes.buttonDiv}  onClick={() => navigate('/rooms')}>
                 <div className={classes.iconDiv}>
                     <FontAwesomeIcon icon={faList} />

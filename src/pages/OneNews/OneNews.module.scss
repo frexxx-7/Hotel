@@ -1,0 +1,36 @@
+.infoNews {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 75vh;
+}
+
+.News {
+    width: 90%;
+    height: 60vh;
+}
+
+.newsContent {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+}
+
+.image {
+    width: 35%;
+}
+
+.image>img {
+    max-width: 100%;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.content {
+    font-size: 25px;
+}

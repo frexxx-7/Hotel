@@ -24,7 +24,7 @@ const News = () => {
         ""
       }
       {
-        arrayNews.map((elem, key)=>{
+        arrayNews.reverse().map((elem, key)=>{
           return <New new = {elem} key={key}/>
         })
       }
