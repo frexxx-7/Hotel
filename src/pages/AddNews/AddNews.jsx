@@ -1,23 +1,42 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import classes from './AddNews.module.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import ModalWindow from '../../components/UI/ModalWindow/ModalWindow'
 import ViewImage from '../../components/UI/ModalWindow/ViewImage/ViewImage'
 import axiosCLient from '../../axios.client'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const AddNews = () => {
 
   const [selectedImage, setSelectedImage] = useState()
   const [visibleModal, setVisibleModal] = useState(false)
   const [errors, setErrors] = useState([])
+  const [infoNews, setInfoNews] = useState()
 
   const titleRef = useRef()
   const contentRef = useRef()
   const isPublishedRef = useRef()
 
   const navigate = useNavigate()
+  const location = useLocation()
+
+
+  useEffect(() => {
+    if (location.pathname.split('/')[1] == "editNews") {
+      axiosCLient.get(`/news/${location.pathname.split('/')[2]}`)
+      .then(({ data }) => {
+        setInfoNews(data.news);
+        titleRef.current.value = infoNews.title
+        contentRef.current.value = infoNews.content
+        isPublishedRef.current.checked = infoNews.is_published
+        setSelectedImage(infoNews.image)
+      })
+      .catch(({ response }) => {
+        console.log(response);
+      })
+    }
+  }, [])
 
   const chooseImage = async (files) => {
     const selectImg = document.getElementById("selectImg");
@@ -32,7 +51,6 @@ const AddNews = () => {
       };
     })(selectImg);
     reader.readAsDataURL(file);
-    selectImg.style = "display:block"
   }
 
   const changeImage = (e) => {
@@ -40,6 +58,28 @@ const AddNews = () => {
     if (fileElem) {
       fileElem.click();
     }
+  }
+
+  const editNewsToDatabase = () => {
+    const payload = {
+      title: titleRef.current.value,
+      content: contentRef.current.value,
+      image: selectedImage,
+      is_published: isPublishedRef.current.checked,
+    }
+    axiosCLient.post('/addNews', payload)
+      .then(({ data }) => {
+        if (data) {
+          console.log(data);
+          navigate(`/news/:${data.news.id}`)
+        }
+      })
+      .catch(err => {
+        const response = err.response
+        if (response && response.status === 422) {
+          setErrors(response.data.errors)
+        }
+      })
   }
 
   const addNewsToDatabase = () => {
@@ -70,7 +110,15 @@ const AddNews = () => {
         <div className={classes.addNewsContent}>
 
           <div className={classes.header}>
-            <h1>Добавить новость</h1>
+            <h1>
+              {
+                location.pathname.split('/')[1] == "addNews"
+                  ?
+                  "Добавить новость"
+                  :
+                  "Редактировать новость"
+              }
+            </h1>
           </div>
 
           <div className={classes.inputs}>
@@ -90,9 +138,9 @@ const AddNews = () => {
               style={{ display: "none" }}
               onChange={(e) => chooseImage(e.target.files)}
             />
-            <img src="none"
+            <img src={selectedImage}
               alt="Selected image"
-              style={{ display: "none" }}
+              style={{ display: selectedImage ? "block" : "none" }}
               id="selectImg"
               className={classes.selectImg}
               onClick={(e) => setVisibleModal(true)} />
@@ -109,7 +157,13 @@ const AddNews = () => {
           }
         </div>
         <div className={classes.addButtonDIv}>
-          <button onClick={addNewsToDatabase}>Добавить</button>
+          {
+            location.pathname.split('/')[1] == "addNews"
+              ?
+              <button onClick={addNewsToDatabase}>Добавить</button>
+              :
+              <button onClick={editNewsToDatabase}>Редактировать</button>
+          }
         </div>
       </div>
     </div>
