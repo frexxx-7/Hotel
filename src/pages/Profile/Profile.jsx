@@ -37,7 +37,8 @@ const Profile = () => {
             </div>
           </div>
           <div className={classes.exitButtonDiv}>
-            <button className={classes.exitButton} onClick={onLogout}>Выход</button>
+            <button className={classes.Button} onClick={onLogout}>Выход</button>
+            <button className={classes.Button} onClick={()=>navigate(`/editProfile/${user.id}`)}>Редактировать</button>
           </div>
         </div>
 

@@ -1,6 +1,7 @@
 import AddNews from "../pages/AddNews/AddNews";
 import AddRooms from "../pages/AddRooms/AddRooms";
 import Autorization from "../pages/Autorization/Autorization";
+import EditProfile from "../pages/EditProfile/EditProfile";
 import Main from "../pages/Main/Main";
 import LoadNews from "../pages/News/LoadNews";
 import News from "../pages/News/News";
@@ -25,6 +26,7 @@ export const privateRoutes = [
   { path: '/rooms/:id', component: LoadRoom },
   { path: '/news', component: News },
   { path: '/news/:id', component: LoadNews },
+  { path: '/editProfile/:id', component: EditProfile },
 ]
 export const adminRoutes = [
   { path: '/addNews', component: AddNews },

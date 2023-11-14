@@ -59,16 +59,19 @@
 
 .exitButtonDiv {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
+    flex-direction: column;
+    height: 100%;
 }
 
-.exitButton {
+.Button {
     padding: 10px 15px;
     border: none;
     border-radius: 10%;
     background-color: #dadada;
     font-weight: bold;
+    display: flex;
 }
 
 .exitButton:hover {
