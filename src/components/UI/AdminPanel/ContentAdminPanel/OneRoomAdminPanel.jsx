@@ -5,15 +5,15 @@ import classes from './ContentAdminPanel.module.scss'
 import { useNavigate } from 'react-router-dom'
 import axiosCLient from '../../../../axios.client'
 
-const OneNewsAdminPanel = ({ idNews }) => {
+const OneRoomAdminPanel = ({ idRoom }) => {
 
     const navigate = useNavigate()
 
-    const deleteNews = () => {
-        axiosCLient.get(`/deleteNews/${idNews}`)
+    const deleteRoom = () => {
+        axiosCLient.get(`/deleteRoom/${idRoom}`)
             .then(({ data }) => {
                 if (data)
-                    navigate('/news')
+                    navigate('/rooms')
             })
             .catch(({ response }) => {
                 if (response.status == 404) {
@@ -31,7 +31,7 @@ const OneNewsAdminPanel = ({ idNews }) => {
                 <p className={classes.buttonP}>Комнаты</p>
             </div>
 
-            <div className={classes.buttonDiv} onClick={() => navigate('/news')}>
+            <div className={classes.buttonDiv}  onClick={() => navigate('/news')}>
                 <div className={classes.iconDiv}>
                     <FontAwesomeIcon icon={faNewspaper} />
                 </div>
@@ -45,14 +45,14 @@ const OneNewsAdminPanel = ({ idNews }) => {
                 <p className={classes.buttonP}>Главная</p>
             </div>
 
-            <div className={classes.buttonDiv} onClick={() => deleteNews()}>
+            <div className={classes.buttonDiv} onClick={() => deleteRoom()}>
                 <div className={classes.iconDiv}>
                     <FontAwesomeIcon icon={faTrash} />
                 </div>
                 <p className={classes.buttonP}>Удалить</p>
             </div>
 
-            <div className={classes.buttonDiv} onClick={() => navigate(`/editNews/${idNews}`)}>
+            <div className={classes.buttonDiv} onClick={() => navigate(`/editRoom/${idRoom}`)}>
                 <div className={classes.iconDiv}>
                     <FontAwesomeIcon icon={faPen} />
                 </div>
@@ -63,4 +63,4 @@ const OneNewsAdminPanel = ({ idNews }) => {
     )
 }
 
-export default OneNewsAdminPanel
+export default OneRoomAdminPanel

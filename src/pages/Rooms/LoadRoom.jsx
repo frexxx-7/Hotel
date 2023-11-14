@@ -14,7 +14,6 @@ const LoadRoom = () => {
     axiosCLient.get(`/rooms/${idNews}`)
       .then(({ data }) => {
         setInfoRoom(data.room);
-        console.log(data);
       })
       .catch(({ response })=>{
         if (response.status == 404) {

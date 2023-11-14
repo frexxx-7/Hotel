@@ -30,4 +30,5 @@ export const adminRoutes = [
   { path: '/addNews', component: AddNews },
   { path: '/addRooms', component: AddRooms },
   { path: '/editNews/:id', component: AddNews },
+  { path: '/editRoom/:id', component: AddRooms },
 ]

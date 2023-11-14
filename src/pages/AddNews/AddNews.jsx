@@ -21,21 +21,28 @@ const AddNews = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
+  const idNews = location.pathname.split('/')[location.pathname.split('/').length - 1];
 
-  useEffect(() => {
+  const loadInfoNews = () => {
     if (location.pathname.split('/')[1] == "editNews") {
       axiosCLient.get(`/news/${location.pathname.split('/')[2]}`)
-      .then(({ data }) => {
-        setInfoNews(data.news);
-        titleRef.current.value = infoNews.title
-        contentRef.current.value = infoNews.content
-        isPublishedRef.current.checked = infoNews.is_published
-        setSelectedImage(infoNews.image)
-      })
-      .catch(({ response }) => {
-        console.log(response);
-      })
+        .then(({ data }) => {
+          if (data) {
+            setInfoNews(data.news);
+            titleRef.current.value = data.news.title
+            contentRef.current.value = data.news.content
+            isPublishedRef.current.checked = data.news.is_published
+            setSelectedImage(data.news.image)
+          }
+        })
+        .catch(({ response }) => {
+          console.log(response);
+        })
     }
+  }
+
+  useEffect(() => {
+    loadInfoNews();
   }, [])
 
   const chooseImage = async (files) => {
@@ -67,11 +74,11 @@ const AddNews = () => {
       image: selectedImage,
       is_published: isPublishedRef.current.checked,
     }
-    axiosCLient.post('/addNews', payload)
+    axiosCLient.post(`/editNews/ ${idNews}`, payload)
       .then(({ data }) => {
         if (data) {
-          console.log(data);
-          navigate(`/news/:${data.news.id}`)
+          if(data.news == 1)
+           navigate(`/news/${idNews}`)
         }
       })
       .catch(err => {
