@@ -2,24 +2,53 @@ import React, { useEffect, useRef, useState } from 'react'
 import classes from './EditProfile.module.scss'
 import { useLocation } from 'react-router-dom'
 import { useStateContext } from '../../context/ContextProvider'
+import axiosCLient from '../../axios.client'
 
 const EditProfile = () => {
-    const { user } = useStateContext()
-
     const [errors, setErrors] = useState()
     const [userInfo, setUserInfo] = useState({})
-    const [userName, setUserName] = useState()
-    const [userPassword, setUserPassword] = useState()
+
+    const nameRef = useRef()
+    const emailRef = useRef()
 
     const location = useLocation()
 
-    useEffect(()=>{
-        setUserInfo(user)
-    },[])
-    console.log(userInfo);
+    useEffect(() => {
+        if (location.pathname.split('/')[1] == "editProfile") {
+            axiosCLient.get(`/loadInfoUser/${location.pathname.split('/')[2]}`)
+                .then(({ data }) => {
+                    if (data) {
+                        setUserInfo(data.user);
+                        nameRef.current.value = data.user.name
+                        emailRef.current.value = data.user.email
+                        setSelectedImage(data.user.image)
+                    }
+                })
+                .catch(({ response }) => {
+                    console.log(response);
+                })
+        }
+    }, [])
 
     const editProfile = () => {
-
+        const payload = {
+            name: nameRef.current.value,
+            email: emailRef.current.value,
+        }
+        axiosCLient.post(`/editProfile/${userInfo.id}`, payload)
+            .then(({ data }) => {
+                if (data) {
+                    console.log(data);
+                    // if(data.user == 1)
+                    //  navigate(`/profile`)
+                }
+            })
+            .catch(err => {
+                const response = err.response
+                if (response && response.status === 422) {
+                    setErrors(response.data.errors)
+                }
+            })
     }
 
     return (
@@ -34,8 +63,8 @@ const EditProfile = () => {
                     </div>
 
                     <div className={classes.inputs}>
-                        <input type="text" className={classes.dataInput} name="Name" placeholder='Имя' value={userInfo.name} />
-                        <input type="text" className={classes.dataInput} name="Password" placeholder='Пароль' />
+                        <input ref={emailRef} type="text" className={classes.dataInput} name="Email" placeholder='Email' />
+                        <input ref={nameRef} type="text" className={classes.dataInput} name="Name" placeholder='Имя' />
                     </div>
                     {errors &&
                         <div>

@@ -10,6 +10,12 @@
     width: 90%;
     height: 60vh;
 }
+.roomContentContainer{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 100%;
+}
 
 .roomContent {
     display: flex;
@@ -31,4 +37,17 @@
     font-size: 20px;
     font-weight: bold;
     padding-top: 28px;
+}
+.buttonReservatioin{
+    position: relative;
+    top: 0;
+    right: 0;
+}
+.buttonReservation{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 10%;
+    background-color: #dadada;
+    font-weight: bold;
+    display: flex;
 }
