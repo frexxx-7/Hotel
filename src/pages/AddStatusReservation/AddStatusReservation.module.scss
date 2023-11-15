@@ -1,0 +1,77 @@
+.addStatus {
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addStatusWindow {
+  min-width: 50%;
+  background-color: rgba($color: #d3d3d3, $alpha: .5);
+  border-radius: 20px;
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
+}
+
+.addStatusContent {
+  width: 90%;
+  min-height: 90%;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+}
+
+.header>h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.inputs {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.dataInput {
+  font-weight: bold;
+  padding: 3px 5px;
+  border-radius: 5px;
+  border: 1px solid #dadada;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.addButtonDIv {
+  height: 50px;
+  display: flex;
+  justify-content: end;
+  width: 90%;
+}
+
+.addButtonDIv>button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 10%;
+  background-color: #dadada;
+  font-weight: bold;
+  height: 35px;
+}
+
+.addButtonDIv>button:hover {
+  color: #fff;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+  text-align: center;
+}

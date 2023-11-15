@@ -1,30 +1,49 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './OneRoom.module.scss'
 import { useNavigate } from 'react-router-dom'
 import { useStateContext } from '../../context/ContextProvider'
+import ModalWindow from '../../components/UI/ModalWindow/ModalWindow'
+import axiosCLient from '../../axios.client'
 
 const OneRoom = ({ roomInfo }) => {
   const { user, token, setUser, setToken } = useStateContext()
 
+  const [showModal, setShowModal] = useState()
   const navigate = useNavigate()
 
   const checkReservationRoom = () => {
-
+    const payload = {
+      idRoom: roomInfo.id,
+    }
+    axiosCLient.post('/loadInfoReservation', payload)
+      .then(({ data }) => {
+        if (data) {
+          console.log(data);
+        }
+      })
+      .catch(err => {
+        const response = err.response
+        if (response && response.status === 422) {
+          setErrors(response.data.errors)
+        }
+      })
   }
 
   useEffect(() => {
-
-  }, [])
+    roomInfo &&
+    checkReservationRoom()
+  }, [roomInfo])
 
   const reservationRoom = () => {
     const payload = {
-      numberOfBeds: numberOfBedsRef.current.value,
-      square: squareRef.current.value,
+      idUser: user.id,
+      idRoom: roomInfo.id,
     }
-    axiosCLient.post('/addRoom', payload)
+    axiosCLient.post('/reservationRoom', payload)
       .then(({ data }) => {
         if (data) {
-          navigate(`/rooms/${data.room.id}`)
+          console.log(data);
+          setShowModal(true)
         }
       })
       .catch(err => {
@@ -37,6 +56,7 @@ const OneRoom = ({ roomInfo }) => {
 
   return (
     <div className={classes.roomInfo}>
+      <ModalWindow children={"Комната забронирована"} visible={showModal} setVisible={setShowModal}/>
       {
         roomInfo ?
           <div className={classes.room}>
@@ -76,7 +96,7 @@ const OneRoom = ({ roomInfo }) => {
                 token
                   ?
                   <div>
-                    <button className={classes.buttonReservation}>Забронировать</button>
+                    <button className={classes.buttonReservation} onClick={()=>reservationRoom()}>Забронировать</button>
                   </div>
                   :
                   ""

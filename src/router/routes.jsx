@@ -1,5 +1,6 @@
 import AddNews from "../pages/AddNews/AddNews";
 import AddRooms from "../pages/AddRooms/AddRooms";
+import AddStatusReservation from "../pages/AddStatusReservation/AddStatusReservation";
 import Autorization from "../pages/Autorization/Autorization";
 import EditProfile from "../pages/EditProfile/EditProfile";
 import Main from "../pages/Main/Main";
@@ -33,4 +34,5 @@ export const adminRoutes = [
   { path: '/addRooms', component: AddRooms },
   { path: '/editNews/:id', component: AddNews },
   { path: '/editRoom/:id', component: AddRooms },
+  { path: '/addStatusReservation/', component: AddStatusReservation },
 ]

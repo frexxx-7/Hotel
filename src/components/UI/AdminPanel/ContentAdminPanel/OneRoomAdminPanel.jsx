@@ -1,4 +1,4 @@
-import { faHouse, faList, faNewspaper, faPen, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faHouse, faList, faNewspaper, faPen, faPlus, faTrash } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React from 'react'
 import classes from './ContentAdminPanel.module.scss'
@@ -57,6 +57,12 @@ const OneRoomAdminPanel = ({ idRoom }) => {
                     <FontAwesomeIcon icon={faPen} />
                 </div>
                 <p className={classes.buttonP}>Редактировать</p>
+            </div>
+            <div className={classes.buttonDiv} onClick={() => navigate(`/addStatusReservation`)}>
+                <div className={classes.iconDiv}>
+                    <FontAwesomeIcon icon={faPlus} />
+                </div>
+                <p className={classes.buttonP}>Добавить статус</p>
             </div>
 
         </div>
