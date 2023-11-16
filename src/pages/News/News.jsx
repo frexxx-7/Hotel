@@ -9,11 +9,14 @@ const News = () => {
 
   const [arrayNews, setArrayNews] = useState([])
   const [searchText, setSearchText] = useState()
+  const [loadNews, setLoadNews] = useState()
 
   useEffect(() => {
+    setLoadNews(true)
     axiosCLient.get('/news')
       .then(({ data }) => {
         setArrayNews(data.news.reverse());
+        setLoadNews(false)
       })
   }, [])
 
@@ -34,17 +37,23 @@ const News = () => {
         <input type="search" className={classes.searchInput} placeholder='Поиск новости' onChange={(e) => {
           setSearchText(e.target.value)
         }} />
-        <div className={classes.searchButton} onClick={()=>searchAllNews()}>
+        <div className={classes.searchButton} onClick={() => searchAllNews()}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </div>
       </div>
       <div className={classes.news}>
-        {arrayNews.length == 0 ?
+        {(arrayNews.length == 0 && loadNews) ?
           <div className={classes.loader}>
             <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
           </div>
           :
           ""
+        }
+        {
+          arrayNews.length == 0 && !loadNews ?
+            <div style={{display:'flex', alignItems:'center', fontWeight:"bold"}}>Новостей нет</div>
+            :
+            ""
         }
         {
           arrayNews.map((elem, key) => {

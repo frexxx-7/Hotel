@@ -72,6 +72,7 @@ const Main = () => {
             {
               onlyRooms
                 ?
+
                 !loadRoom && onlyRooms.rooms &&
                 Object.values(onlyRooms.rooms).map((elem, key) => {
                   return <Room room={elem} key={key} />
@@ -81,6 +82,15 @@ const Main = () => {
                 Object.values(mainInfo.rooms).map((elem, key) => {
                   return <Room room={elem} key={key} />
                 })
+            }
+            {
+              onlyRooms
+                ?
+                !loadRoom && onlyRooms.rooms && onlyRooms.rooms.length == 0 &&
+                <div style={{ display: 'flex', alignItems: 'center', fontWeight: "bold" }}>Комнат нет</div>
+                :
+                mainInfo.rooms && mainInfo.rooms.length == 0 &&
+                <div style={{ display: 'flex', alignItems: 'center', fontWeight: "bold" }}>Комнат нет</div>
             }
           </div>
         </div>
@@ -128,6 +138,10 @@ const Main = () => {
                   Object.values(mainInfo.news).reverse().map((elem, key) => {
                     return <New new={elem} key={key} />
                   })
+                }
+                {
+                  mainInfo.news && mainInfo.news.length == 0 &&
+                  <div style={{ display: 'flex', alignItems: 'center', fontWeight: "bold" }}>Новостей нет</div>
                 }
               </div>
             </div>

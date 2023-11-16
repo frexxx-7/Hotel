@@ -6,12 +6,12 @@ import { useLocation, useNavigate } from 'react-router-dom';
 const LoadRoom = () => {
   const currentUrl = useLocation()
   const [infoRoom, setInfoRoom] = useState()
-  const idNews = currentUrl.pathname.split('/')[currentUrl.pathname.split('/').length - 1];
+  const idRoom = currentUrl.pathname.split('/')[currentUrl.pathname.split('/').length - 1];
 
   const navigate = useNavigate()
 
   const loadRoomInfo = () => {
-    axiosCLient.get(`/rooms/${idNews}`)
+    axiosCLient.get(`/rooms/${idRoom}`)
       .then(({ data }) => {
         setInfoRoom(data.room);
       })

@@ -100,7 +100,7 @@ const AddNews = () => {
       .then(({ data }) => {
         if (data) {
           console.log(data);
-          navigate(`/news/:${data.news.id}`)
+          navigate(`/news/${data.news.id}`)
         }
       })
       .catch(err => {

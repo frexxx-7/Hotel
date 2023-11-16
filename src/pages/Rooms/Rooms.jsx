@@ -8,11 +8,14 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
 const Rooms = () => {
   const [arrayRooms, setArrayRooms] = useState([])
   const [searchText, setSearchText] = useState()
+  const [loadRoom, setLoadRoom] = useState()
 
   useEffect(() => {
+    setLoadRoom(true)
     axiosCLient.get('/rooms')
       .then(({ data }) => {
         setArrayRooms(data.rooms.reverse());
+        setLoadRoom(false)
       })
   }, [])
 
@@ -22,7 +25,6 @@ const Rooms = () => {
     }
     axiosCLient.post('/searchAllRooms', payload)
       .then(({ data }) => {
-        console.log(data);
         setArrayRooms(data.rooms.reverse());
       })
   }
@@ -33,18 +35,24 @@ const Rooms = () => {
         <input type="search" className={classes.searchInput} placeholder='Поиск комнаты' onChange={(e) => {
           setSearchText(e.target.value)
         }} />
-        <div className={classes.searchButton} onClick={()=>searchAllRoom()}>
+        <div className={classes.searchButton} onClick={() => searchAllRoom()}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </div>
       </div>
       <div className={classes.rooms}>
 
-        {arrayRooms.length == 0 ?
+        {arrayRooms.length == 0 && loadRoom ?
           <div className={classes.loader}>
             <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
           </div>
           :
           ""
+        }
+        {
+          arrayRooms.length == 0 && !loadRoom ?
+            <div style={{display:'flex', alignItems:'center', fontWeight:"bold"}}>Комнат нет</div>
+            :
+            ""
         }
         {
           arrayRooms.map((elem, key) => {

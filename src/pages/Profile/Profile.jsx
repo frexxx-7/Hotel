@@ -9,6 +9,7 @@ const Profile = () => {
   const { user, token, setUser, setToken } = useStateContext()
 
   const [userRooms, seetUserRooms] = useState([])
+  const [loadUserRooms, setLoadUserRooms] = useState()
 
   const navigate = useNavigate()
   if (!token) {
@@ -25,12 +26,14 @@ const Profile = () => {
       })
   }
   useEffect(() => {
-    user &&
-    axiosCLient.get(`/userRooms/${user.id}`)
-      .then(({ data }) => {
-        console.log(data);
-        seetUserRooms(data.rooms.reverse());
-      })
+    if (user) {
+      setLoadUserRooms(true)
+      axiosCLient.get(`/userRooms/${user.id}`)
+        .then(({ data }) => {
+          seetUserRooms(data.rooms.reverse());
+        })
+      setLoadUserRooms(false)
+    }
   }, [user])
 
   return (
@@ -60,24 +63,28 @@ const Profile = () => {
         </div>
       </div>
       <div className={classes.blockRooms}>
-          <div className={classes.blockRoomsContent}>
-            <div className={classes.roomsPosts}>
-              {userRooms.length == 0 ?
-                <div className={classes.loader}>
-                  <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
-                </div>
-                :
-                ""
-              }
-              {
-                userRooms && userRooms &&
-                Object.values(userRooms).map((elem, key) => {
-                  return <Room room={elem} key={key} />
-                })
-              }
-            </div>
+        <div className={classes.blockRoomsContent}>
+          <div className={classes.roomsPosts}>
+            {userRooms.length == 0 && loadUserRooms ?
+              <div className={classes.loader}>
+                <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+              </div>
+              :
+              ""
+            }
+            {
+              userRooms && userRooms &&
+              Object.values(userRooms).map((elem, key) => {
+                return <Room room={elem} key={key} />
+              })
+            }
+            {
+              userRooms.length == 0 && !loadUserRooms &&
+              <div style={{display:'flex', alignItems:'center', fontWeight:"bold"}}>Забронированных комнат нет</div>
+            }
           </div>
         </div>
+      </div>
     </div>
   )
 }
