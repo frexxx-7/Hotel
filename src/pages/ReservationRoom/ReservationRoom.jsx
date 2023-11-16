@@ -109,7 +109,7 @@ const ReservationRoom = () => {
           }
         </div>
         <div className={classes.addButtonDIv}>
-          <button onClick={calculateTheCost} style={{ marginRight: "20px" }}>Расчитать стоимость</button>
+          <button onClick={calculateTheCost} style={{ marginRight: "20px" }}>Рассчитать стоимость</button>
           <button onClick={reservationRoom}>Забронировать</button>
         </div>
         {
