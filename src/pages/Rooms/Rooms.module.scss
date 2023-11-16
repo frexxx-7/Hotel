@@ -1,13 +1,44 @@
 .rooms {
-    min-height: 75vh;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  min-height: 75vh;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .loader {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+}
+
+.searchRooms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+}
+
+.searchInput {
+  border: 1px solid #000;
+  border-radius: 10px 0 0 10px;
+  height: 30px;
+  width: 600px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.searchButton {
+  border: 1px solid #000;
+  border-radius: 0 10px 10px 0;
+  height: 28.2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  color: #000;
+}
+
+.searchButton:hover {
+  cursor: pointer;
 }

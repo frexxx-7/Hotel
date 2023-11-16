@@ -1,94 +1,154 @@
 .main {
-    width: 85%;
+  width: 85%;
+}
+
+.mainContent {
+  background-color: #fff;
 }
 
 .bgImage {
-    width: 100%;
-    background-image: url("./background-image.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 100%;
+  background-image: url("./background-image.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .mainBgImage {
-    width: 85%;
-    height: 50vh;
+  width: 85%;
+  height: 50vh;
 }
 
 .mainInfo {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
 }
 
 .mainInfoH2 {
-    font-size: 50px;
-    color: #fff;
-    text-shadow: 1px 2px 2px #000, 0 0 1em;
-    margin-bottom: 40px;
+  font-size: 50px;
+  color: #fff;
+  text-shadow: 1px 2px 2px #000, 0 0 1em;
+  margin-bottom: 40px;
 }
 
 .mainSearch {
-    display: flex;
+  display: flex;
 }
 
 .searchInput {
-    border: 1px solid #000;
-    border-radius: 10px 0 0 10px;
-    height: 30px;
-    width: 600px;
-    padding: 10px;
-    box-sizing: border-box;
+  border: 1px solid #000;
+  border-radius: 10px 0 0 10px;
+  height: 30px;
+  width: 600px;
+  padding: 10px;
+  box-sizing: border-box;
 }
 
 .searchButton {
-    border: 1px solid #000;
-    border-radius: 0 10px 10px 0;
-    height: 28.2px;
-    background-color: #ff6161;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 30px;
-    color: #fff;
+  border: 1px solid #000;
+  border-radius: 0 10px 10px 0;
+  height: 28.2px;
+  background-color: #ff6161;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  color: #fff;
 }
 
 .searchButton:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
-.blockNews, .blockRooms {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 75vh;
+.blockNews,
+.blockRooms {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 75vh;
 }
 
-.blockNewsContent, .blockRoomsContent {
-    width: 85%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    flex-direction: column;
+.blockNewsContent,
+.blockRoomsContent {
+  width: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  flex-direction: column;
 }
 
-.newsH3, .roomsH3 {
-    font-size: 30px;
-    font-weight: bold;
-    margin: 40px 0;
+.newsH3,
+.roomsH3 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 40px 0;
 }
 
-.newsPosts, .roomsPosts {
-    width: 90%;
-    display: flex;
-    flex-wrap: wrap;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
+.newsPosts,
+.roomsPosts {
+  width: 90%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome {
+  height: 15vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.welcome>h3 {
+  font-family: cursive;
+  font-style: oblique;
+  font-size: 25px;
+  padding-bottom: 20px;
+  border-bottom: solid #dadada;
+  width: 70%;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.hotelInfo {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hotelInfoContent {
+  width: 80%;
+  height: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.oneBlockInfo{
+  height: 90%;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.oneBlockInfo>svg{
+  height: 60px;
+  margin-bottom: 10px;
+}
+.oneBlockInfoTitle{
+  font-weight: bold;
+}
+.oneBlockInfo > svg:hover{
+  cursor: pointer;
+  color:#ff6161;
 }

@@ -5,6 +5,7 @@ import MyAside from './components/UI/Aside/MyAside'
 import { Transition } from 'react-transition-group'
 import AppRouter from './components/AppRouter'
 import AdminPanel from './components/UI/AdminPanel/AdminPanel'
+import Footer from './components/UI/Footer/Footer'
 
 
 function App() {
@@ -53,6 +54,7 @@ function App() {
       </Transition>}
       <MyHeader />
       <AppRouter />
+      <Footer />
     </BrowserRouter>
   )
 }

@@ -9,6 +9,9 @@ const OneRoom = ({ roomInfo }) => {
   const { user, token, setUser, setToken } = useStateContext()
 
   const [showModal, setShowModal] = useState()
+  const [statusReservation, setStatusReservation] = useState("")
+  const [idUserReservation, setIdUserReservation] = useState()
+  console.log(idUserReservation);
   const navigate = useNavigate()
 
   const checkReservationRoom = () => {
@@ -18,7 +21,8 @@ const OneRoom = ({ roomInfo }) => {
     axiosCLient.post('/loadInfoReservation', payload)
       .then(({ data }) => {
         if (data) {
-          console.log(data);
+          setStatusReservation(data.reservation[data.reservation.length - 1].name);
+          setIdUserReservation(data.reservation[data.reservation.length - 1].idUser)
         }
       })
       .catch(err => {
@@ -31,13 +35,14 @@ const OneRoom = ({ roomInfo }) => {
 
   useEffect(() => {
     roomInfo &&
-    checkReservationRoom()
+      checkReservationRoom()
   }, [roomInfo])
 
   const reservationRoom = () => {
     const payload = {
       idUser: user.id,
       idRoom: roomInfo.id,
+      idStatus: 1
     }
     axiosCLient.post('/reservationRoom', payload)
       .then(({ data }) => {
@@ -56,10 +61,17 @@ const OneRoom = ({ roomInfo }) => {
 
   return (
     <div className={classes.roomInfo}>
-      <ModalWindow children={"Комната забронирована"} visible={showModal} setVisible={setShowModal}/>
+      <ModalWindow children={"Комната забронирована"} visible={showModal} setVisible={setShowModal} />
       {
         roomInfo ?
           <div className={classes.room}>
+            {
+              statusReservation != "Свободна"
+                ?
+                <h2 className={classes.notification}>Комната {statusReservation.toLowerCase()} {statusReservation == "Забронирована" && idUserReservation == user.id ? "вами" : ""}</h2>
+                :
+                ""
+            }
             <div className={classes.roomContentContainer}>
               <div className={classes.roomContent}>
                 {
@@ -93,10 +105,10 @@ const OneRoom = ({ roomInfo }) => {
                 </div>
               </div>
               {
-                token
+                token && statusReservation != "Забронирована"
                   ?
                   <div>
-                    <button className={classes.buttonReservation} onClick={()=>reservationRoom()}>Забронировать</button>
+                    <button className={classes.buttonReservation} onClick={() => reservationRoom()}>Забронировать</button>
                   </div>
                   :
                   ""

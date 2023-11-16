@@ -6,6 +6,8 @@ import NewsAdminPanel from './ContentAdminPanel/NewsAdminPanel';
 import RoomsAdminPanel from './ContentAdminPanel/RoomsAdminPanel';
 import OneNewsAdminPanel from './ContentAdminPanel/OneNewsAdminPanel';
 import OneRoomAdminPanel from './ContentAdminPanel/OneRoomAdminPanel';
+import ForAllAdminPanel from './ContentAdminPanel/ForAllAdminPanel';
+import ProfileAdminPanel from './ContentAdminPanel/ProfileAdminPanel';
 
 const AdminPanel = () => {
   const location = useLocation()
@@ -15,7 +17,7 @@ const AdminPanel = () => {
       case "/main":
         return <MainAdminPanel />
       case "/profile":
-        return "profile"
+        return <ProfileAdminPanel/>
       case "/news":
         return <NewsAdminPanel />
       case "/rooms":
@@ -25,6 +27,7 @@ const AdminPanel = () => {
       case "/" + (pathname.match(/rooms\/.*/) && pathname.match(/rooms\/.*/)[0]):
         return <OneRoomAdminPanel idRoom={pathname.match(/rooms\/.*/) && pathname.split('/')[pathname.split('/').length - 1]} />
       default:
+        return <ForAllAdminPanel />
         break;
     }
   }
