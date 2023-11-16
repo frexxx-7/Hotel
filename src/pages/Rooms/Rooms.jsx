@@ -12,16 +12,28 @@ const Rooms = () => {
   useEffect(() => {
     axiosCLient.get('/rooms')
       .then(({ data }) => {
-        setArrayRooms(data.rooms);
+        setArrayRooms(data.rooms.reverse());
       })
   }, [])
+
+  const searchAllRoom = () => {
+    const payload = {
+      searchText: searchText
+    }
+    axiosCLient.post('/searchAllRooms', payload)
+      .then(({ data }) => {
+        console.log(data);
+        setArrayRooms(data.rooms.reverse());
+      })
+  }
+
   return (
     <>
       <div className={classes.searchRooms}>
         <input type="search" className={classes.searchInput} placeholder='Поиск комнаты' onChange={(e) => {
           setSearchText(e.target.value)
         }} />
-        <div className={classes.searchButton}>
+        <div className={classes.searchButton} onClick={()=>searchAllRoom()}>
           <FontAwesomeIcon icon={faMagnifyingGlass} />
         </div>
       </div>
@@ -35,7 +47,7 @@ const Rooms = () => {
           ""
         }
         {
-          arrayRooms.reverse().map((elem, key) => {
+          arrayRooms.map((elem, key) => {
             return <Room room={elem} key={key} />
           })
         }

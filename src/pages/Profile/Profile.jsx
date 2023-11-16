@@ -1,11 +1,14 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import classes from './Profile.module.scss'
 import { useStateContext } from '../../context/ContextProvider'
 import axiosCLient from '../../axios.client'
 import { useNavigate } from "react-router-dom";
+import Room from '../../components/Room/Room';
 
 const Profile = () => {
   const { user, token, setUser, setToken } = useStateContext()
+
+  const [userRooms, seetUserRooms] = useState([])
 
   const navigate = useNavigate()
   if (!token) {
@@ -21,6 +24,14 @@ const Profile = () => {
         setToken(null)
       })
   }
+  useEffect(() => {
+    user &&
+    axiosCLient.get(`/userRooms/${user.id}`)
+      .then(({ data }) => {
+        console.log(data);
+        seetUserRooms(data.rooms.reverse());
+      })
+  }, [user])
 
   return (
     <div className={classes.content}>
@@ -38,7 +49,7 @@ const Profile = () => {
           </div>
           <div className={classes.exitButtonDiv}>
             <button className={classes.Button} onClick={onLogout}>Выход</button>
-            <button className={classes.Button} onClick={()=>navigate(`/editProfile/${user.id}`)}>Редактировать</button>
+            <button className={classes.Button} onClick={() => navigate(`/editProfile/${user.id}`)}>Редактировать</button>
           </div>
         </div>
 
@@ -48,7 +59,25 @@ const Profile = () => {
           <h3 className={classes.roomsH3}>Команты:</h3>
         </div>
       </div>
-
+      <div className={classes.blockRooms}>
+          <div className={classes.blockRoomsContent}>
+            <div className={classes.roomsPosts}>
+              {userRooms.length == 0 ?
+                <div className={classes.loader}>
+                  <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+                </div>
+                :
+                ""
+              }
+              {
+                userRooms && userRooms &&
+                Object.values(userRooms).map((elem, key) => {
+                  return <Room room={elem} key={key} />
+                })
+              }
+            </div>
+          </div>
+        </div>
     </div>
   )
 }
