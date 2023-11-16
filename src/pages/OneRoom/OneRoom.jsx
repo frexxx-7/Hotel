@@ -38,26 +38,7 @@ const OneRoom = ({ roomInfo }) => {
       checkReservationRoom()
   }, [roomInfo])
 
-  const reservationRoom = () => {
-    const payload = {
-      idUser: user.id,
-      idRoom: roomInfo.id,
-      idStatus: 1
-    }
-    axiosCLient.post('/reservationRoom', payload)
-      .then(({ data }) => {
-        if (data) {
-          console.log(data);
-          setShowModal(true)
-        }
-      })
-      .catch(err => {
-        const response = err.response
-        if (response && response.status === 422) {
-          setErrors(response.data.errors)
-        }
-      })
-  }
+ 
 
   return (
     <div className={classes.roomInfo}>
@@ -108,7 +89,7 @@ const OneRoom = ({ roomInfo }) => {
                 token && statusReservation != "Забронирована"
                   ?
                   <div>
-                    <button className={classes.buttonReservation} onClick={() => reservationRoom()}>Забронировать</button>
+                    <button className={classes.buttonReservation} onClick={() => navigate(`/reservationRoom/${roomInfo.id}`)}>Забронировать</button>
                   </div>
                   :
                   ""

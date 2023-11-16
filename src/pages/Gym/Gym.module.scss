@@ -1,0 +1,12 @@
+.contentGym {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.containerTable>table{
+    border-collapse:collapse;
+}
+.containerTable>table>td{
+    border: 1px solid #000;
+}

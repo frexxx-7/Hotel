@@ -6,6 +6,7 @@ import { faBed, faDumbbell, faMagnifyingGlass, faScissors, faUtensils } from '@f
 import New from '../../components/New/New'
 import Room from '../../components/Room/Room'
 import axiosCLient from '../../axios.client'
+import { useNavigate } from 'react-router-dom'
 
 const Main = () => {
 
@@ -13,6 +14,8 @@ const Main = () => {
   const [searchText, setSearchText] = useState()
   const [onlyRooms, setOnlyRooms] = useState([])
   const [loadRoom, setLoadRoom] = useState(false)
+
+  const navigate = useNavigate()
 
   useEffect(() => {
     axiosCLient.get('/main')
@@ -94,22 +97,22 @@ const Main = () => {
           <div className={classes.hotelInfo}>
             <div className={classes.hotelInfoContent}>
               <div className={classes.oneBlockInfo}>
-                <FontAwesomeIcon icon = {faUtensils} />
+                <FontAwesomeIcon icon={faUtensils} onClick={() => navigate('/restaurant')} />
                 <p className={classes.oneBlockInfoTitle}>БУФЕТ</p>
               </div>
 
               <div className={classes.oneBlockInfo}>
-                <FontAwesomeIcon icon = {faScissors} />
-                <p className={classes.oneBlockInfoTitle}>ПАРИКХМАХЕРСКАЯ</p>
+                <FontAwesomeIcon icon={faScissors} onClick={() => navigate('/salon')} />
+                <p className={classes.oneBlockInfoTitle}>ПАРИКМАХЕРСКАЯ</p>
               </div>
 
               <div className={classes.oneBlockInfo}>
-                <FontAwesomeIcon icon = {faBed} />
-                <p className={classes.oneBlockInfoTitle}>КОМНАТЫ</p>
+                <FontAwesomeIcon icon={faBed} onClick={() => navigate('/rooms')} />
+                <p className={classes.oneBlockInfoTitle} >КОМНАТЫ</p>
               </div>
 
               <div className={classes.oneBlockInfo}>
-                <FontAwesomeIcon icon = {faDumbbell} />
+                <FontAwesomeIcon icon={faDumbbell} onClick={() => navigate('/gym')} />
                 <p className={classes.oneBlockInfoTitle}>СПОРТЗАЛ</p>
               </div>
             </div>
