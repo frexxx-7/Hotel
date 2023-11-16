@@ -71,7 +71,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  min-height: 75vh;
 }
 
 .blockNewsContent,
@@ -133,7 +133,8 @@
   justify-content: space-around;
   align-items: center;
 }
-.oneBlockInfo{
+
+.oneBlockInfo {
   height: 90%;
   width: 20%;
   display: flex;
@@ -141,14 +142,41 @@
   align-items: center;
   flex-direction: column;
 }
-.oneBlockInfo>svg{
+
+.oneBlockInfo>svg {
   height: 60px;
   margin-bottom: 10px;
 }
-.oneBlockInfoTitle{
+
+.oneBlockInfoTitle {
   font-weight: bold;
 }
-.oneBlockInfo > svg:hover{
+
+.oneBlockInfo>svg:hover {
   cursor: pointer;
-  color:#ff6161;
+  color: #ff6161;
+}
+
+@media (max-width: 1200px) {
+
+  .newsPosts,
+  .roomsPosts {
+    width: 100%;
+  }
+}
+@media (max-width: 650px) {
+  .searchInput {
+    width: 90%;
+  }
+  
+  .searchButton {
+    width: 9%;
+  }
+  .mainSearch{
+    width: 100%;
+  }
+  .blockRoomsContent,
+  .blockNewsContent{
+    width: 100%;
+  }
 }

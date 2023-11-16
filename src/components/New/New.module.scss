@@ -69,3 +69,8 @@
 .likeContainer:hover{
   cursor: pointer;
 }
+@media (max-width: 800px) {
+  .newsContent {
+    width: 85%;
+  }
+}

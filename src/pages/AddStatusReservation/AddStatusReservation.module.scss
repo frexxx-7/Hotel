@@ -75,3 +75,13 @@
   color: red;
   text-align: center;
 }
+@media (max-width: 700px) {
+  .addStatusWindow{
+    width: 70%;
+  }
+}
+@media (max-width: 500px) {
+  .addStatusWindow{
+    width: 95%;
+  }
+}

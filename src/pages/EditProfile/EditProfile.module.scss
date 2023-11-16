@@ -128,3 +128,13 @@
     color: red;
     text-align: center;
 }
+@media (max-width: 700px) {
+  .addNewsWindow{
+    width: 70%;
+  }
+}
+@media (max-width: 500px) {
+  .addNewsWindow{
+    width: 95%;
+  }
+}
