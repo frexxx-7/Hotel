@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import classes from './MyAside.module.scss'
 import { useStateContext } from '../../../context/ContextProvider'
-import { faDumbbell, faHouse, faList, faNewspaper, faScissors, faUtensils, faXmark } from '@fortawesome/free-solid-svg-icons'
+import { faDumbbell, faHouse, faList, faNewspaper, faXmark } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useNavigate } from 'react-router-dom'
 
@@ -35,18 +35,6 @@ const MyAside = () => {
                 <div className={classes.goTo} onClick={() => navigate('/news')}>
                     <FontAwesomeIcon icon={faNewspaper} />
                     <p>Новости</p>
-                </div>
-            </div>
-            <div className={classes.goToDiv}>
-                <div className={classes.goTo} onClick={() => navigate('/restaurant')}>
-                    <FontAwesomeIcon icon={faUtensils} />
-                    <p>Ресторан</p>
-                </div>
-            </div>
-            <div className={classes.goToDiv}>
-                <div className={classes.goTo} onClick={() => navigate('/salon')}>
-                    <FontAwesomeIcon icon={faScissors} />
-                    <p>Парикмахерская</p>
                 </div>
             </div>
             <div className={classes.goToDiv}>

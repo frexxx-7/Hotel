@@ -3,10 +3,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-.containerTable>table{
-    border-collapse:collapse;
+
+.contentGym>p {
+    width: 75%;
+    margin-bottom: 40px;
 }
-.containerTable>table>td{
+
+.containerTable>table {
+    border-collapse: collapse;
+}
+
+.containerTable>table>td {
     border: 1px solid #000;
 }

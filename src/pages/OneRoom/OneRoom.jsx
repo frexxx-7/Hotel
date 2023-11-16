@@ -38,7 +38,7 @@ const OneRoom = ({ roomInfo }) => {
       checkReservationRoom()
   }, [roomInfo])
 
- 
+
 
   return (
     <div className={classes.roomInfo}>
@@ -82,6 +82,10 @@ const OneRoom = ({ roomInfo }) => {
                   <div className={classes.square}>
                     <p>Площадь:</p>
                     <p>{roomInfo.square}</p>
+                  </div> 
+                  <div className={classes.price}>
+                    <p>Цена:</p>
+                    <p>{roomInfo.price}</p>
                   </div>
                 </div>
               </div>

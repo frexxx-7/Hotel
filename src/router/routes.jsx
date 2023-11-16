@@ -10,10 +10,8 @@ import News from "../pages/News/News";
 import Profile from "../pages/Profile/Profile";
 import Registration from "../pages/Registration/Registration";
 import ReservationRoom from "../pages/ReservationRoom/ReservationRoom";
-import Restaurant from "../pages/Restaurant/Restaurant";
 import LoadRoom from "../pages/Rooms/LoadRoom";
 import Rooms from "../pages/Rooms/Rooms";
-import Salon from "../pages/Salon/Salon";
 
 export const publicRoutes = [
   { path: '/signin', component: Autorization },
@@ -23,8 +21,6 @@ export const publicRoutes = [
   { path: '/rooms/:id', component: LoadRoom },
   { path: '/news', component: News },
   { path: '/news/:id', component: LoadNews },
-  { path: '/restaurant', component: Restaurant },
-  { path: '/salon', component: Salon },
   { path: '/gym', component: Gym },
 ]
 export const privateRoutes = [
@@ -36,8 +32,6 @@ export const privateRoutes = [
   { path: '/news/:id', component: LoadNews },
   { path: '/editProfile/:id', component: EditProfile },
   { path: '/reservationRoom/:id', component: ReservationRoom },
-  { path: '/restaurant', component: Restaurant },
-  { path: '/salon', component: Salon },
   { path: '/gym', component: Gym },
 ]
 export const adminRoutes = [

@@ -4,9 +4,10 @@ import classes from './Gym.module.scss'
 const Gym = () => {
   return (
     <div className={classes.contentGym}>
+      <p>Прейскурант №28 отпускных цен (тарифов) на физкультурно-оздоровительные услуги, оказываемые в УО «Молодечненский торгово-экономический колледж» Белкоопсоюза по состоянию на 11.04.2022 год.</p>
       <div className={classes.containerTable}>
-        <table border={1}>
-          <tbody>
+        <table border={1} align=''>
+          <tbody align="center">
             <tr>
               <td align='center'>Наименование услуги</td>
               <td align='center'>Вид услуги</td>
@@ -36,88 +37,82 @@ const Gym = () => {
               <td align='center'>11.04.2022</td>
             </tr>
             <tr>
-              <td align='center'></td>
               <td align='center'>На сутки</td>
               <td align='center'>9,00</td>
               <td align='center'>11.04.2022</td>
             </tr>
             <tr>
-              <td align='center'></td>
               <td align='center'>На двое суток</td>
               <td align='center'>16,00</td>
               <td align='center'>11.04.2022</td>
             </tr>
             <tr>
-              <td align='center'></td>
               <td align='center'>На трое суток</td>
               <td align='center'>22,00</td>
               <td align='center'>11.04.2022</td>
             </tr>
             <tr>
-              <td align='center'></td>
               <td align='center'>На неделю</td>
               <td align='center'>45,00</td>
               <td align='center'>11.04.2022</td>
             </tr>
             <tr>
-              <td align='center'></td>
               <td align='center'>На десять суток</td>
               <td align='center'>55,00</td>
               <td align='center'>11.04.2022</td>
             </tr>
             <tr>
-              <td align='center'></td>
               <td align='center'>На две недели</td>
               <td align='center'>65,00</td>
               <td align='center'>11.04.2022</td>
             </tr>
             <tr>
-          <td  align='center'  rowSpan="7">Прокат велосипедов учащимся и сотрудникам колледжа</td>
-          <td align='center'>В 2 часа</td>
-          <td >3,50</td>
-          <td >11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center">На сутки</td>
-          <td className="has-text-align-center" data-align="center">7,50</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center">На двое суток</td>
-          <td className="has-text-align-center" data-align="center">13,00</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center">На трое суток</td>
-          <td className="has-text-align-center" data-align="center">18,00</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center">На неделю</td>
-          <td className="has-text-align-center" data-align="center">38,00</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center">На десять суток</td>
-          <td className="has-text-align-center" data-align="center">45,00</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center">На две недели</td>
-          <td className="has-text-align-center" data-align="center">52,00</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center" rowSpan="2">Прокат лыж</td>
-          <td className="has-text-align-center" data-align="center">В 2 часа</td>
-          <td className="has-text-align-center" data-align="center">3,00</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
-        <tr>
-          <td className="has-text-align-center" data-align="center">На сутки</td>
-          <td className="has-text-align-center" data-align="center">7,00</td>
-          <td className="has-text-align-center" data-align="center">11.04.2022</td>
-        </tr>
+              <td align='center' rowSpan="7">Прокат велосипедов учащимся и сотрудникам колледжа</td>
+              <td align='center'>В 2 часа</td>
+              <td align='center'>3,50</td>
+              <td align='center'>11.04.2022</td>
+            </tr>
+            <tr>
+              <td>На сутки</td>
+              <td>7,50</td>
+              <td>11.04.2022</td>
+            </tr>
+            <tr>
+              <td>На двое суток</td>
+              <td>13,00</td>
+              <td>11.04.2022</td>
+            </tr>
+            <tr>
+              <td>На трое суток</td>
+              <td>18,00</td>
+              <td>11.04.2022</td>
+            </tr>
+            <tr>
+              <td>На неделю</td>
+              <td>38,00</td>
+              <td>11.04.2022</td>
+            </tr>
+            <tr>
+              <td>На десять суток</td>
+              <td>45,00</td>
+              <td>11.04.2022</td>
+            </tr>
+            <tr>
+              <td>На две недели</td>
+              <td>52,00</td>
+              <td>11.04.2022</td>
+            </tr>
+            <tr>
+              <td rowSpan="2">Прокат лыж</td>
+              <td>В 2 часа</td>
+              <td>3,00</td>
+              <td>11.04.2022</td>
+            </tr>
+            <tr>
+              <td>На сутки</td>
+              <td>7,00</td>
+              <td>11.04.2022</td>
+            </tr>
           </tbody>
         </table>
       </div>

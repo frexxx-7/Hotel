@@ -1,9 +1,9 @@
 .content {
-    height: var(--height-content);
+    min-height: var(--height-content);
 }
 
 .profileInfoContent {
-    height: 30%;
+    height: 30vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -82,7 +82,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 75vh;
+  min-height: 75vh;
 }
 
 .blockRoomsContent {

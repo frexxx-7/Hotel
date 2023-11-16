@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import classes from './Main.module.scss'
 import axios from 'axios'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faDumbbell, faMagnifyingGlass, faScissors, faUtensils } from '@fortawesome/free-solid-svg-icons'
+import { faBed, faDumbbell, faMagnifyingGlass, faNewspaper, faScissors, faUtensils } from '@fortawesome/free-solid-svg-icons'
 import New from '../../components/New/New'
 import Room from '../../components/Room/Room'
 import axiosCLient from '../../axios.client'
@@ -97,13 +97,8 @@ const Main = () => {
           <div className={classes.hotelInfo}>
             <div className={classes.hotelInfoContent}>
               <div className={classes.oneBlockInfo}>
-                <FontAwesomeIcon icon={faUtensils} onClick={() => navigate('/restaurant')} />
-                <p className={classes.oneBlockInfoTitle}>БУФЕТ</p>
-              </div>
-
-              <div className={classes.oneBlockInfo}>
-                <FontAwesomeIcon icon={faScissors} onClick={() => navigate('/salon')} />
-                <p className={classes.oneBlockInfoTitle}>ПАРИКМАХЕРСКАЯ</p>
+                <FontAwesomeIcon icon={faNewspaper} onClick={() => navigate('/news')} />
+                <p className={classes.oneBlockInfoTitle}>НОВОСТИ</p>
               </div>
 
               <div className={classes.oneBlockInfo}>

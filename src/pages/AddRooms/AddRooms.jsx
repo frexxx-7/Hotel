@@ -18,6 +18,7 @@ const AddRooms = () => {
   const numberOfBedsRef = useRef()
   const squareRef = useRef()
   const numberRef = useRef()
+  const priceRef = useRef()
   const quantityIsBusyRef = useRef()
 
   const navigate = useNavigate()
@@ -35,6 +36,7 @@ const AddRooms = () => {
             numberOfBedsRef.current.value = data.room.numberOfBeds
             squareRef.current.value = data.room.square
             numberRef.current.value = data.room.number
+            priceRef.current.value = data.room.price
             quantityIsBusyRef.current.value = data.room.quantityIsBusy
 
             setSelectedImage(data.room.image)
@@ -78,6 +80,7 @@ const AddRooms = () => {
       square: squareRef.current.value,
       number: numberRef.current.value,
       quantityIsBusy: quantityIsBusyRef.current.value,
+      price: priceRef.current.value,
       image: selectedImage,
     }
     axiosCLient.post(`/editRoom/${idRoom}`, payload)
@@ -101,6 +104,7 @@ const AddRooms = () => {
       square: squareRef.current.value,
       number: numberRef.current.value,
       quantityIsBusy: quantityIsBusyRef.current.value,
+      price: priceRef.current.value,
       image: selectedImage,
     }
     axiosCLient.post('/addRoom', payload)
@@ -139,6 +143,7 @@ const AddRooms = () => {
             <input ref={squareRef} type="text" className={classes.dataInput} name="Square" placeholder='Площадь' />
             <input ref={numberRef} type="text" className={classes.dataInput} name="Number" placeholder='Номер комнаты' />
             <input ref={quantityIsBusyRef} type="text" className={classes.dataInput} name="QuantityIsBusy" placeholder='Количество занятых кроватей' />
+            <input ref={priceRef} type="text" className={classes.dataInput} name="price" placeholder='Цена за один день' />
           </div>
 
           <ModalWindow visible={visibleModal} setVisible={setVisibleModal} children={<ViewImage image={selectedImage} />} />

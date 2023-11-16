@@ -40,6 +40,10 @@ const ReservationRoom = () => {
             })
     }
 
+    const calculateTheCost = () => {
+        departureDateRef.current.value.getTime() - arrivalDateRef.current.value.getTime()
+    }
+
     return (
         <div className={classes.reservationRoom}>
             <div className={classes.reservationRoomWindow}>
@@ -63,6 +67,7 @@ const ReservationRoom = () => {
                     }
                 </div>
                 <div className={classes.addButtonDIv}>
+                    <button onClick={reservationRoom}>Расчитать стоимость</button>
                     <button onClick={reservationRoom}>Забронировать</button>
                 </div>
             </div>

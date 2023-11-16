@@ -27,6 +27,9 @@ const Room = (props) => {
             <p className={classes.content}>
               Количество человек: {roomInfo.quantityIsBusy}
             </p>
+            <p className={classes.content}>
+              Цена за день: {roomInfo.price}
+            </p>
           </div>
         </div>
       </div>
